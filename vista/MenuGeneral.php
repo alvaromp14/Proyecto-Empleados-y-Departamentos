@@ -67,5 +67,7 @@ if (isset($_SESSION['tipoUsuario'])) {
                 </div>
             </div>
         <?php endif; ?>
+        <br><br><br><br>
+        <a class="volver" href="../vista/Despedida.php">Cerrar sesi&oacute;n</a>
     </body>
 </html>
