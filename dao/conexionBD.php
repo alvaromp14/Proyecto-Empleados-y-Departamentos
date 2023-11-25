@@ -215,5 +215,27 @@ public function ListadoEmpleadosDepartamento($idDepartamento) {
     return $empleados;
 }
 
+//Autenticación
+public function autenticarUsuario($usuario, $contrasena) {
+    $query = "SELECT usuario, contraseña FROM credenciales WHERE usuario = '$usuario'";
+    $resultado = $this->conexion->query($query);
+
+    if ($resultado) {
+        // Verificar si se encontró un usuario
+        if ($resultado->num_rows == 1) {
+            // Obtener la información del usuario
+            $usuarioDB = $resultado->fetch_assoc();
+
+            // Verificar la contraseña
+            if ($contrasena == $usuarioDB['contraseña']) {
+                // Devolver el tipo de usuario
+                return $usuarioDB['usuario'];
+            }
+        }
+    }
+
+    // En caso de error o credenciales incorrectas, devolver false
+    return false;
+}
 
 }
