@@ -13,7 +13,13 @@ if (isset($_SESSION['usuarioAutenticado'])) {
 
 // Realiza el seguimiento del usuario (incrementa el contador de visitas)
 $numVisitas = isset($_COOKIE['numVisitas']) ? $_COOKIE['numVisitas'] + 1 : 1;
-setcookie('numVisitas', $numVisitas, time() + 3600 * 24 * 30); // Cookie válida por 30 días
+
+// Elimina la cookie y la establece en 0
+setcookie('numVisitas', 0, time() - 3600); // Establece la cookie en 0 y la hace expirar
+
+// Cierra la sesión
+session_unset();
+session_destroy();
 ?>
 
 <html>

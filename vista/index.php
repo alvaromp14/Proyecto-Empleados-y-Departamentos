@@ -31,8 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../vista/MenuGeneral.php");
         } else {
             // Tipo de usuario no reconocido
-            echo "Tipo de usuario no reconocido. ";
-            echo "Tipo almacenado: $usuarioAutenticado";
+            echo "Usuario no reconocido.";
         }
         exit();
     } else {

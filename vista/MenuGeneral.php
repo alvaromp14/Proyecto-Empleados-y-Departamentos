@@ -10,6 +10,10 @@ if (isset($_SESSION['tipoUsuario'])) {
     header("Location: ../vista/index.php");
     exit();
 }
+
+// Incrementa el contador de visitas
+$numVisitas = isset($_COOKIE['numVisitas']) ? $_COOKIE['numVisitas'] + 1 : 1;
+setcookie('numVisitas', $numVisitas, time() + 3600 * 24 * 30); // Cookie válida por 30 días
 ?>
 
 <html>

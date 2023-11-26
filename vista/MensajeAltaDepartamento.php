@@ -1,3 +1,11 @@
+<?php
+// Inicia la sesión
+session_start();
+
+// Incrementa el contador de visitas
+$numVisitas = isset($_COOKIE['numVisitas']) ? $_COOKIE['numVisitas'] + 1 : 1;
+setcookie('numVisitas', $numVisitas, time() + 3600 * 24 * 30); // Cookie válida por 30 días
+?>
 <html>
 <head>
     <meta charset="UTF-8">

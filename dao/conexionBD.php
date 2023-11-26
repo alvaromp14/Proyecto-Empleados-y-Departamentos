@@ -7,7 +7,7 @@ class conexionBD {
     
 public function __construct(){
     //Establecer la conexión con el servidor
-    $this->conexion = new mysqli('localhost', 'root', '', 'bd_empleados_2023_php');
+    $this->conexion = new mysqli('localhost', 'root', '', 'test');
     //Evitar que se interpreten mal las tildes y ñ.    
     $this->conexion->set_charset("utf8");
     
